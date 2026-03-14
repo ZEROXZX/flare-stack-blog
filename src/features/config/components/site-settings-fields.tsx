@@ -6,11 +6,13 @@ export function Field({
   label,
   hint,
   error,
+  readOnly,
   children,
 }: {
   label: string;
   hint?: string;
   error?: string;
+  readOnly?: boolean;
   children: React.ReactNode;
 }) {
   return (
@@ -23,7 +25,9 @@ export function Field({
           <div className="h-4" aria-hidden />
         )}
       </div>
-      {children}
+      <div className={cn(readOnly && "opacity-70 cursor-default")}>
+        {children}
+      </div>
       {error ? <p className="text-xs text-destructive">{error}</p> : null}
     </label>
   );
@@ -38,6 +42,7 @@ export function RangeField({
   max,
   step,
   unit,
+  readOnly,
   defaultValue,
   formatValue,
 }: {
@@ -49,6 +54,7 @@ export function RangeField({
   max: number;
   step: number;
   unit?: string;
+  readOnly?: boolean;
   defaultValue: number;
   formatValue?: (value: number) => string;
 }) {
@@ -64,7 +70,7 @@ export function RangeField({
       : defaultValue;
 
   return (
-    <label className="space-y-3">
+    <label className={cn("space-y-3", readOnly && "opacity-70 cursor-default")}>
       <div className="space-y-1">
         <div className="flex min-h-5 items-end">
           <p className="text-sm font-medium text-foreground">{label}</p>
@@ -104,9 +110,11 @@ export function RangeField({
           value={currentValue}
           onBlur={field.onBlur}
           onChange={(event) => field.onChange(Number(event.target.value))}
+          disabled={readOnly}
           className={cn(
             "h-2 w-full cursor-pointer appearance-none rounded-full bg-muted/50 accent-foreground",
             error && "accent-destructive",
+            readOnly && "cursor-default opacity-50",
           )}
         />
       </div>

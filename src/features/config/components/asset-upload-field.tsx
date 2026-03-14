@@ -5,6 +5,7 @@ import { useFormContext } from "react-hook-form";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { uploadSiteAssetFn } from "@/features/config/api/config.api";
+import { cn } from "@/lib/utils";
 import { m } from "@/paraglide/messages";
 
 interface AssetUploadFieldProps {
@@ -84,11 +85,10 @@ export function AssetUploadField({
             <Input
               {...register(name)}
               readOnly={readOnly}
-              className={
-                error
-                  ? "border-destructive focus-visible:border-destructive"
-                  : undefined
-              }
+              className={cn(
+                error && "border-destructive focus-visible:border-destructive",
+                readOnly && "border-dashed opacity-60 bg-muted/5",
+              )}
               placeholder={`/images/asset/${assetPath}`}
             />
             <input
