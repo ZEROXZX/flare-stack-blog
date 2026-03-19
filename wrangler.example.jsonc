@@ -41,6 +41,7 @@
       "remote": true
     }
   ],
+  "workflows": [
     {
       "name": "post-process-workflow",
       "binding": "POST_PROCESS_WORKFLOW",
