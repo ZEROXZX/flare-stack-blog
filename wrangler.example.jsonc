@@ -17,14 +17,14 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_id": "0958a63a-4c4f-4308-8a71-c5bbf50c908a",
+      "database_id": "D1_DATABASE_ID",
       "migrations_dir": "migrations",
       "remote": true
     }
   ],
   "r2_buckets": [
     {
-      "bucket_name": "flare-stack-blog",
+      "bucket_name": "bucket-name-placeholder",
       "binding": "R2",
       "remote": true
     }
@@ -32,16 +32,15 @@
   "kv_namespaces": [
     {
       "binding": "KV",
-      "id": "84c1f7b2c8754924b85ff04a39b63e05",
+      "id": "KV_NAMESPACE_ID",
       "remote": true
     },
     {
       "binding": "OAUTH_KV",
-      "id": "84c1f7b2c8754924b85ff04a39b63e05",
+      "id": "KV_NAMESPACE_ID",
       "remote": true
     }
   ],
-  "workflows": [
     {
       "name": "post-process-workflow",
       "binding": "POST_PROCESS_WORKFLOW",
